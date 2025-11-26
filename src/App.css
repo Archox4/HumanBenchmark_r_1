@@ -1,29 +1,71 @@
 @import "tailwindcss";
 
-html, body{
-  background-color: oklch(0% 0 0 / 0.94);
-  height: 100%;
+html,
+body {
+  background-color: oklch(0% 0 0 / 0.74);
+  min-height: 100vh;
 }
+
 #root {
-  
+
   width: 100%;
 
 }
 
 @keyframes gradient-x {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: theme("colors.gray.900");
+    border-radius: 5px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: theme("colors.gray.700");
+    border-radius: 5px;
+  }
+}
+
 @keyframes glow {
-  0%, 100% { filter: drop-shadow(0 0 45px #000000); }
-  33% { filter: drop-shadow(0 0 45px #00b8db); }
-  66% { filter: drop-shadow(0 0 45px #9333ea); }
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 45px #000000);
+  }
+
+  33% {
+    filter: drop-shadow(0 0 45px #00b8db);
+  }
+
+  66% {
+    filter: drop-shadow(0 0 45px #9333ea);
+  }
 }
+
 .nav-bg-anim {
   background: linear-gradient(270deg, #000000, #00b8db, #9333ea);
   background-size: 200% 200%;
-  animation:  gradient-x 6s ease-in-out infinite,
-              glow 6s ease-in-out infinite;
+  animation: gradient-x 6s ease-in-out infinite,
+    glow 6s ease-in-out infinite;
 }
 
 input[type=number]::-webkit-inner-spin-button,

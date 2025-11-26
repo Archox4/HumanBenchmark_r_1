@@ -6,20 +6,24 @@ import Hub from './Hub'
 import NotFound from './NotFound'
 import ReactionTime from './Games/ReactionTime'
 import NumberMemory from './Games/NumberMemory'
+import WordMemory from './Games/WordMemory'
 
 function App() {
 
   return (
 
+    <>
       <BrowserRouter>
-        <Navbar/>
+        <Navbar />
         <Routes>
-            <Route path="/" element={<Hub />} />
-            <Route path="/ReactionTime" element={<ReactionTime />} />
-            <Route path="/NumberMemory" element={<NumberMemory />} />
-            <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Hub />} />
+          <Route path="/ReactionTime" element={<ReactionTime />} />
+          <Route path="/NumberMemory" element={<NumberMemory />} />
+          <Route path="/WordsMemory" element={<WordMemory />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+    </>
 
   )
 }
