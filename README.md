@@ -1,4 +1,4 @@
-# Human Benchmark Clone
+# Human Benchmark Ispired WebApp
 
 A React-based web application that is inpired mainly by the Human Benchmark website.
 
