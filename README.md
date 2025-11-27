@@ -67,7 +67,3 @@ npm run preview
 - `src/`: Root components.
 - `src/assets/`: Static assets and images.
 - `src/Games/assets/`: Components made explicitly for games.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
