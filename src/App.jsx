@@ -7,6 +7,7 @@ import NotFound from './NotFound'
 import ReactionTime from './Games/ReactionTime'
 import NumberMemory from './Games/NumberMemory'
 import WordMemory from './Games/WordMemory'
+import Footer from './Footer'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/WordsMemory" element={<WordMemory />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
 

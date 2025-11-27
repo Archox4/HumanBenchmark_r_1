@@ -1,9 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Scoreboard from '../Scoreboard';
 import Leaderboard from '../Leaderboard';
+import ProgressBar from './assets/ProgressBar';
 
 export default function WordMemory() {
-
+    /*
+        state 0 = game start / go 1
+        state 1 = game in progress / go 2 if correct | go 3 if wrong
+        state 2 = next word / move back to 1
+        state 3 = game over screen / go 4
+        state 4 = reset an go to 0
+    */
     const _LEVELS = [20, 30, 40, 50, 60, 70, 80, 90, 100];
     const _WORDS = [
         "apple", "banana", "orange", "grape", "strawberry", "blueberry", "pineapple", "mango", "kiwi", "peach",
@@ -17,19 +24,15 @@ export default function WordMemory() {
         "river", "lake", "ocean", "mountain", "hill", "valley", "desert", "forest", "beach", "island",
         "happy", "sad", "angry", "excited", "calm", "tired", "sleepy", "hungry", "thirsty", "bored"
     ];
-    /*
-    state 0 = game start
-    state 1 = game in progress
-    state 2 = next word
-    state 3 = game over screen/ reset
-    state 4 = reset an go to 0
-    */
+
     const score = useRef(1);
     const [wordsSeen, setWordsSeen] = useState([]);
     const [randomWords, setRandomWords] = useState([]);
     const [word, setWord] = useState("");
     const [gameState, setGameState] = useState(0);
     const [scores, setScores] = useState([]);
+
+    const timerRef = useRef(null);
 
     useEffect(() => {
         if (gameState == 0) {
@@ -41,6 +44,12 @@ export default function WordMemory() {
             }
             nextWord();
             if (!wordsSeen.includes(word)) { setWordsSeen([...wordsSeen, word]); }
+
+
+            timerRef.current = setTimeout(() => {
+                clearTimeout(timerRef.current);
+                setGameState(3);
+            }, 4000);
 
         } else if (gameState == 2) {
             setGameState(1);
@@ -57,6 +66,7 @@ export default function WordMemory() {
     }, [gameState]);
 
     const handleChoice = (choice) => {
+        clearTimeout(timerRef.current);
         if (choice == "seen") {
             if (wordsSeen.includes(word)) {
                 score.current++;
@@ -118,6 +128,7 @@ export default function WordMemory() {
                     }
                     {gameState == 1 &&
                         <>
+                            <ProgressBar duration={4000} />
                             <h4 className='text-3xl text-gray-100'>Level {score.current}</h4>
                             <h4 className='text-3xl text-cyan-500 mt-4'>{word}</h4>
 

@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --color-dark-bg: oklch(0% 0 0 / 0.741);
+  --breakpoint-xs: 480px;
+}
+
 html,
 body {
-  background-color: oklch(0% 0 0 / 0.74);
+  background-color: var(--color-dark-bg);
   min-height: 100vh;
 }
 
@@ -45,6 +50,12 @@ body {
   }
 }
 
+@layer components {
+  .pop-out-anim {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+}
+
 @keyframes glow {
 
   0%,
@@ -53,20 +64,21 @@ body {
   }
 
   33% {
-    filter: drop-shadow(0 0 45px #00b8db);
+    filter: drop-shadow(0 0 45px #00b7db71);
   }
 
   66% {
-    filter: drop-shadow(0 0 45px #9333ea);
+    filter: drop-shadow(0 0 45px #000000);
   }
 }
 
 .nav-bg-anim {
-  background: linear-gradient(270deg, #000000, #00b8db, #9333ea);
-  background-size: 200% 200%;
-  animation: gradient-x 6s ease-in-out infinite,
+  background: linear-gradient(270deg, #000000, #00b8db, #000000);
+  background-size: 120% 120%;
+  animation: gradient-x 10s ease-in-out infinite,
     glow 6s ease-in-out infinite;
 }
+
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {

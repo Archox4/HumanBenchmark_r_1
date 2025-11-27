@@ -81,10 +81,10 @@ function ReactionTime() {
 
     return (
         <>
-            <div className="flex justify-between m-5 flex-row">
-                <Scoreboard dataList={resultList} extension="ms" />
-                <div id="reaction_box" onClick={handleClick} style={{ backgroundColor: bgColor, boxShadow: `0 25px 50px -12px ${shadowColor}` }} className="h-200 w-300 flex justify-center items-center rounded-xl shadow-2xl "><p id="text1" className="h-fit text-2xl text-gray-900 mb-25">{msg}</p></div>
-                <Leaderboard />
+            <div className="flex justify-between gap-5 m-5 flex-row xl:flex-nowrap flex-wrap overflow-hidden">
+                <Scoreboard className="xl:order-1 order-2" dataList={resultList} extension="ms" />
+                <div onClick={handleClick} style={{ backgroundColor: bgColor, boxShadow: `0 25px 50px -12px ${shadowColor}` }} className="h-200 xl:w-fill w-full xl:order-2 order-1 flex justify-center items-center rounded-xl shadow-2xl "><p id="text1" className="h-fit text-2xl text-gray-900 mb-25 px-5 py-10">{msg}</p></div>
+                <Leaderboard className="order-3" />
             </div>
         </>
     );

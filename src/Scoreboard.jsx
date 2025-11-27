@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function Scoreboard({ dataList, extension }) {
+function Scoreboard({ dataList, extension, className }) {
     const list = Array.isArray(dataList) ? dataList : [];
 
 
 
     return (
-        <div className="flex flex-col p-2 bg-linear-to-tr from-black to-gray-900 w-1/6 h-100 pb-2 rounded-xl shadow-blue-500 shadow-2xl text-gray-300 border-2 border-blue-500 me-2 overflow-x-hidden">
+        <div className={`flex flex-col p-2 md:mb-20 mb-10 md:ms-10 bg-linear-to-tr from-black to-gray-900 xl:w-1/6 md:w-1/3 w-full h-100 pb-2 rounded-xl shadow-blue-500 shadow-xl text-gray-300 border-2 border-blue-500 overflow-x-hidden ${className}`}>
             <h2 className="text-center text-2xl font-medium mb-3">Scoreboard</h2>
             {list.length === 0 ? (
                 <p className="text-center">No results yet</p>
