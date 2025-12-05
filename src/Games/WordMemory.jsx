@@ -112,24 +112,25 @@ export default function WordMemory() {
     }
 
     return (
-        <>
-            <div className="flex justify-between m-5 flex-row mt-10">
-                <Scoreboard dataList={scores} extension="lvl" />
+        <section className="content-section">
+            <div className="flex justify-between gap-5 m-5 pb-10 flex-row xl:flex-nowrap flex-wrap mt-10">
+                <Scoreboard className="xl:order-1 order-2" dataList={scores} extension="lvl" />
 
-                <div className="flex justify-center items-center flex-col h-full text-gray-100">
+                <div className="flex h-fit items-center flex-col md:w-fill w-full mb-2 xl:p-0 md:p-10 xl:order-2 order-1 min-h-70 text-gray-100">
                     {gameState == 0 &&
                         <>
                             <div className='flex flex-col items-center'>
                                 <h4 className='text-3xl'>Words Memory Game</h4>
-                                <p className='text-xl mt-4'>Choose whether the word you see is new or you have seen it before</p>
+                                <p className='md:text-xl text-lg mt-4'>Choose whether the word you see is new or you have seen it before</p>
                                 <button onClick={() => setGameState(1)} className='mt-8 px-4 py-1 bg-green-500 text-gray-100 rounded'>Start</button>
                             </div>
                         </>
                     }
                     {gameState == 1 &&
                         <>
+                            <h4 className='text-3xl text-gray-100 mb-2'>Level {score.current}</h4>
+
                             <ProgressBar duration={4000} />
-                            <h4 className='text-3xl text-gray-100'>Level {score.current}</h4>
                             <h4 className='text-3xl text-cyan-500 mt-4'>{word}</h4>
 
                             <div className='flex flex-row justify-center'>
@@ -156,9 +157,9 @@ export default function WordMemory() {
                         <button class="btn btn-info" id="btn_new">NEW</button>
                     </div> */}
                 </div>
-                <Leaderboard />
+                <Leaderboard className="order-3" />
             </div>
 
-        </>
+        </section>
     );
 }

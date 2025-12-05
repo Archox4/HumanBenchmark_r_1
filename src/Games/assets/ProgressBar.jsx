@@ -40,7 +40,7 @@ const ProgressBar = ({ duration }) => {
       <div
         className="absolute right-1/2 top-0 h-full transition-all ease-linear origin-left"
         style={{
-          transform: `translateX(100%)`, // anchor right bar from middle
+          transform: `translateX(100%)`,
           width: `${progress / 2}%`,
           backgroundColor: color,
           boxShadow: `0 0 10px ${color}`,

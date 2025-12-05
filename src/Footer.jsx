@@ -7,7 +7,7 @@ const Footer = () => {
             <p>Project inspired mainly by <i className='text-cyan-500'><a href="https://humanbenchmark.com/">HumanBenchmark</a></i></p>
             <a href="https://github.com/archox4" target="_blank" rel="noopener noreferrer" className='flex justify-center items-center gap-2 mt-4'>
                 <FaGithub size={24} />
-                GitHub
+                My GitHub
             </a>
         </footer>
     );

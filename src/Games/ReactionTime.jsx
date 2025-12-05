@@ -59,7 +59,6 @@ function ReactionTime() {
                 setShadowColor(_GREEN_SHADOW);
                 setMsg(_MSG_READY);
                 startTimer.current = new Date();
-                console.log("#1 " + startTimer.current);
             }, delay * 1000);
         }
 
@@ -80,13 +79,13 @@ function ReactionTime() {
     }, []);
 
     return (
-        <>
-            <div className="flex justify-between gap-5 m-5 flex-row xl:flex-nowrap flex-wrap overflow-hidden">
+        <section className="content-section">
+            <div className="flex justify-between gap-5 m-5 pb-10 flex-row xl:flex-nowrap flex-wrap overflow-hidden">
                 <Scoreboard className="xl:order-1 order-2" dataList={resultList} extension="ms" />
-                <div onClick={handleClick} style={{ backgroundColor: bgColor, boxShadow: `0 25px 50px -12px ${shadowColor}` }} className="h-200 xl:w-fill w-full xl:order-2 order-1 flex justify-center items-center rounded-xl shadow-2xl "><p id="text1" className="h-fit text-2xl text-gray-900 mb-25 px-5 py-10">{msg}</p></div>
+                <div onClick={handleClick} style={{ backgroundColor: bgColor, boxShadow: `0 15px 25px -12px ${shadowColor}` }} className="h-200 xl:w-fill w-full xl:order-2 order-1 flex justify-center items-center rounded-xl shadow-2xl "><p id="text1" className="h-fit text-2xl text-gray-900 mb-25 px-5 py-10">{msg}</p></div>
                 <Leaderboard className="order-3" />
             </div>
-        </>
+        </section>
     );
 };
 

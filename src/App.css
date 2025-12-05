@@ -8,13 +8,25 @@
 html,
 body {
   background-color: var(--color-dark-bg);
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+
   min-height: 100vh;
 }
 
 #root {
-
+  display: flex;
+  flex-direction: column;
   width: 100%;
 
+  min-height: 100vh;
+
+
+}
+
+.content-section {
+  flex-grow: 1;
 }
 
 @keyframes gradient-x {

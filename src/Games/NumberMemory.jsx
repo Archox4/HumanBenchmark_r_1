@@ -14,10 +14,10 @@ function NumberMemory() {
     const inputNumber = useRef("");
     const [resultsArr, setResultsArr] = useState([]);
 
-    const [progress, setProgress] = useState(100);
+    // const [progress, setProgress] = useState(100);
 
     const countdownRef = useRef(null);
-    const clockRef = useRef(null);
+    // const clockRef = useRef(null);
 
 
 
@@ -65,9 +65,9 @@ function NumberMemory() {
         }
     }
 
-    function nextNumber() {
-        return getRandom(level);
-    }
+    // function nextNumber() {
+    //     return getRandom(level);
+    // }
 
     function getRandom(length) {
         var randNum = "";
@@ -80,16 +80,16 @@ function NumberMemory() {
     const handlePaste = (e) => { e.preventDefault(); };
 
     return (
-        <>
-            <div className="flex justify-between text-gray-100 p-2 h-full">
-                <Scoreboard dataList={resultsArr} extension="lvl" />
+        <section className="content-section">
+            <div className="flex justify-between gap-5 m-5 pb-10 flex-row xl:flex-nowrap flex-wrap text-gray-100 p-2 h-full">
+                <Scoreboard className="xl:order-1 order-2" dataList={resultsArr} extension="lvl" />
 
-                <div className="flex h-fit items-center flex-col w-full">
+                <div className="flex h-fit items-center flex-col md:w-fill w-full mb-2 xl:p-0 md:p-10 xl:order-2 order-1 min-h-70">
                     <h1 className="w-fit text-3xl font-semibold mb-6">Number Memory</h1>
                     {gameState === 2 && (
                         <>
                             <ProgressBar duration={level * 1000 + 1000} />
-                            <input onPaste={handlePaste} onDrop={handlePaste} autoComplete="off" name="num_input" ref={inputNumber} autoFocus type="number" className="bg-gray-700 mt-4 shadow-2xl shadow-cyan-700 text-center text-3xl p-1 text-gray-100 border-2 border-gray-800 rounded-xl w-1/2 mb-6" />
+                            <input onPaste={handlePaste} onDrop={handlePaste} autoComplete="off" name="num_input" ref={inputNumber} autoFocus type="number" className="bg-gray-700 mt-4 shadow-2xl shadow-cyan-700 text-center text-3xl p-1 text-gray-100 border-2 border-gray-800 rounded-xl md:w-1/2 w-3/4 mb-6" />
                         </>
                     )}
                     {gameState === 1 && (
@@ -112,9 +112,9 @@ function NumberMemory() {
                     )}
 
                 </div>
-                <Leaderboard />
+                <Leaderboard className="order-3" />
             </div>
-        </>
+        </section>
     );
 };
 
