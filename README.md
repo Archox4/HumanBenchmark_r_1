@@ -1,4 +1,4 @@
-# Human Benchmark Clone
+# Human Benchmark Ispired WebApp
 
 A React-based web application that is inpired mainly by the Human Benchmark website.
 
@@ -67,7 +67,3 @@ npm run preview
 - `src/`: Root components.
 - `src/assets/`: Static assets and images.
 - `src/Games/assets/`: Components made explicitly for games.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
